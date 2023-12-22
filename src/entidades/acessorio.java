@@ -1,9 +1,12 @@
 package entidades;
 
-public class acessorio extends Produto {
-	
-	public acessorio(String nome, String cor, double preco) {
-		super(nome, cor, preco);
+public class Acessorio extends Produto {
+
+	public Acessorio(int tipo, int id, String nome, String cor, double preco, int quantidade) {
+		super(tipo, id, nome, cor, preco, quantidade);
+		// TODO Auto-generated constructor stub
 	}
+	
+
 
 }
