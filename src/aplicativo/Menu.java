@@ -21,7 +21,7 @@ public class Menu {
 		System.out.println(Cores.TEXT_BLUE + Cores.ANSI_WHITE_BACKGROUND
 				         + "-------------------------------------------------------");
 		System.out.println("                                                       ");
-		System.out.println("\t\tSWELL STORE - Venda de iPhones         ");
+		System.out.println("\t\tSWELL STORE - Venda de iPhones e Acessórios Apple  ");
 		System.out.println("                                                       ");
 		System.out.println("-------------------------------------------------------");
 		System.out.println("\t\tEntrar Como Vendedor ou Cliente?       ");
@@ -41,7 +41,7 @@ public class Menu {
 				System.out.println("\n1 - Adicionar Produto ao Estoque");
 				System.out.println("2 - Remover Produto do Estoque");
 				System.out.println("3 - Atualizar Preço de Produto no Estoque" + Cores.TEXT_RESET);
-				System.out.println("\nDigite a Opção Desejada: ");
+				System.out.print("\nDigite a opção desejada: ");
 				opcao = sc.nextInt();
 			}
 			case 2 -> {
