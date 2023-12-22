@@ -1,6 +1,8 @@
 package produto.controller;
 
 import produto.repository.ProdutoRepository;
+import utilidades.Cores;
+
 import java.util.ArrayList;
 import entidades.Produto;
 
@@ -11,7 +13,7 @@ public class ProdutoController implements ProdutoRepository {
 	
 	
 	@Override
-	public void adicionarProduto(Produto produto) {
+	public void criarProduto(Produto produto) {
 		produtos.add(produto);
 		System.out.println("Produto adicionado ao estoque!");		
 	}
@@ -26,16 +28,18 @@ public class ProdutoController implements ProdutoRepository {
 
 	@Override
 	public void removerProduto(int id) {
-		for (Produto item : produtos) {
-			if (id == item.getId()) {
-				produtos.remove(id);
-			}
-			else {
-				System.out.println("Produto não encontrado!");
+		var produto = buscarNoEstoque(id);
+		
+		if (produto != null) {
+			if (produtos.remove(produto) == true) {
+				System.out.println("\nO produto ID: " + id + " foi removido do estoque!");
 			}
 		}
+		else {
+			System.out.println("\nO produto de ID: " + id + " não foi encontrado!");
+		}
+		
 	}
-
 	@Override
 	public void atualizarPreco(int id, double preco) {
 		for (Produto item : produtos) {
@@ -45,18 +49,40 @@ public class ProdutoController implements ProdutoRepository {
 		}
 		
 	}
+	
+	@Override
+	public void acrescentarProduto(int id, int quantidade) {
+		for (Produto item : produtos) {
+			if (id == item.getId()) {
+				item.setQuantidade(item.getQuantidade() + quantidade);
+			}
+		}
+		System.out.println("Produtos adicionados ao estoque!");		
+	}
 
 	@Override
 	public void comprarProduto(int id) {
-		for (Produto item : produtos) {
-			if (id == item.getId()) {
-				item.setQuantidade(-1);
-			}
+		var produto = buscarNoEstoque(id);
+		
+		if (produto != null) {
+			produto.setQuantidade(produto.getQuantidade() - 1);
+			System.out.println(Cores.TEXT_GREEN_BOLD_BRIGHT + "Compra efetuada com sucesso, acompanhe o andamento do seu pedido por e-mail!" + Cores.TEXT_RESET);		
+		}		
+		else {
+			System.out.println("\nO produto de ID: " + id + " não foi encontrado!");
 		}
-		System.out.println("Compra efetuada com sucesso, acompanhe o andamento do seu pedido por e-mail!");		
 	}
 	
 	public int geradorId() {
 		return ++ id;
+	}
+	
+	public Produto buscarNoEstoque (int numero) {
+		for (var produto : produtos) {
+			if (produto.getId() == numero) {
+				return produto;
+			}
+		}
+		return null;
 	}
 }

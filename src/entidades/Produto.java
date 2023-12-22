@@ -1,20 +1,20 @@
 package entidades;
 
+import utilidades.Cores;
+
 public abstract class Produto {
 	
 	private int tipo;
 	private int id;
 	private String nome;
-	private String cor;
 	private double preco;
 	private int quantidade;
 	
 	
-	public Produto(int tipo, int id, String nome, String cor, double preco, int quantidade) {
+	public Produto(int tipo, int id, String nome, double preco, int quantidade) {
 		this.tipo = tipo;
 		this.id = id;
 		this.nome = nome;
-		this.cor = cor;
 		this.preco = preco;
 		this.quantidade = quantidade;
 	}
@@ -43,14 +43,6 @@ public abstract class Produto {
 		this.nome = nome;
 	}
 
-	public String getCor() {
-		return cor;
-	}
-
-	public void setCor(String cor) {
-		this.cor = cor;
-	}
-
 	public double getPreco() {
 		return preco;
 	}
@@ -69,7 +61,7 @@ public abstract class Produto {
 
 	@Override
 	public String toString() {
-		return "Produto: Nome = " + nome + ", Cor = " + cor + ", Preço = " + preco;
+		return Cores.TEXT_CYAN_BOLD + "ID: "+ id + " | Nome: " + nome + " | Preço: " + preco + " | Quantidade: " + quantidade;
 	}
 	
 	public void adicionarProduto(Produto produto) {

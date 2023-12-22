@@ -1,11 +1,13 @@
 package entidades;
 
+import utilidades.Cores;
+
 public class Iphone extends Produto {
 
 	private int gb;
 	
-	public Iphone(int tipo, int id, String nome, String cor, double preco, int quantidade, int gb) {
-		super(tipo, id, nome, cor, preco, quantidade);
+	public Iphone(int tipo, int id, String nome, double preco, int quantidade, int gb) {
+		super(tipo, id, nome, preco, quantidade);
 		this.gb = gb;
 	}
 
@@ -17,11 +19,10 @@ public class Iphone extends Produto {
 		this.gb = gb;
 	}
 
+
 	@Override
 	public String toString() {
-		return "iPhone [Capacidade de Armazenamento: " + gb;
+		return Cores.TEXT_GREEN_BOLD + "ID: "+ getId() + " | Nome: " + getNome() + " | Quantidade: " + getQuantidade() + " | Preço: " + getPreco() + " | Capacidade de Armazenamento: " + gb + "gb";
 	}
-	
-	
 
 }
