@@ -39,8 +39,9 @@ public class Menu {
 				}
 				System.out.println(Cores.TEXT_WHITE_BOLD + "\nMenu de Opções - Vendedor");
 				System.out.println("\n1 - Adicionar Produto ao Estoque");
-				System.out.println("2 - Remover Produto do Estoque");
-				System.out.println("3 - Atualizar Preço de Produto no Estoque" + Cores.TEXT_RESET);
+				System.out.println("2 - Listar Todos os Produtos");
+				System.out.println("3 - Remover Produto do Estoque");
+				System.out.println("4 - Atualizar Preço de Produto no Estoque" + Cores.TEXT_RESET);
 				System.out.print("\nDigite a opção desejada: ");
 				opcao = sc.nextInt();
 			}
